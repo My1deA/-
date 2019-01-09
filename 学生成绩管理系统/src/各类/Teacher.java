@@ -25,11 +25,11 @@ public class Teacher implements Serializable {
 	}
 	
 	///////添加课程ID
-	public void addLesson(Lesson t) {
+	public void addLesson(String t) {
 		if(lessonID==null) {
 			lessonID=new ArrayList<>();
 		}
-		lessonID.add(t.getID());
+		lessonID.add(t);
 	}
 	/////////返回课程ID
 	public ArrayList<String> getLesson() {

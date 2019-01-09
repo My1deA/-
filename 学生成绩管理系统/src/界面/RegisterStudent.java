@@ -54,12 +54,12 @@ public class RegisterStudent extends JFrame implements Check,CreateObject{
 		
 		JLabel label_3 = new JLabel("\u5B66\u751F\u73ED\u7EA7\uFF1A");
 		label_3.setFont(new Font("宋体", Font.PLAIN, 14));
-		label_3.setBounds(61, 198, 70, 40);
+		label_3.setBounds(61, 279, 70, 40);
 		contentPane.add(label_3);
 		
 		JLabel label_4 = new JLabel("\u5B66\u751F\u4E13\u4E1A\uFF1A");
 		label_4.setFont(new Font("宋体", Font.PLAIN, 14));
-		label_4.setBounds(61, 270, 70, 15);
+		label_4.setBounds(61, 225, 70, 15);
 		contentPane.add(label_4);
 		
 		//账号
@@ -75,12 +75,12 @@ public class RegisterStudent extends JFrame implements Check,CreateObject{
 		//班级
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(145, 208, 156, 21);
+		textField_2.setBounds(145, 289, 156, 21);
 		contentPane.add(textField_2);
 		//专业
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(145, 267, 156, 21);
+		textField_3.setBounds(145, 222, 156, 21);
 		contentPane.add(textField_3);
 		//密码
 		passwordField = new JPasswordField();

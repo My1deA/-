@@ -1,6 +1,8 @@
 package 各类;
 
-public class Score {
+import java.io.Serializable;
+
+public class Score implements Serializable {
 	
 	private String ID;//学生id
 	private String name;//学生姓名
@@ -9,6 +11,23 @@ public class Score {
 	private double HW;//作业     HomeWork
 	private double EOT;//期末   End of term
 	private double SUM;//总评 
+	
+	public Score() {
+		
+	}
+	public Score(String ID,String NAME) {
+		this.ID=ID;
+		this.name=NAME;
+	}
+	public Score(String ID,String NAME,double CWA,double TEST,double HW,double EOT) {
+		this.ID=ID;
+		this.name=NAME;
+		this.CWA=CWA;
+		this.TEST=TEST;
+		this.HW=HW;
+		this.EOT=EOT;
+		setSUM();
+	}
 	
 	public void setID(String ID) {
 		this.ID=ID;
@@ -52,7 +71,8 @@ public class Score {
 	public double getSUM() {
 		return SUM;
 	}
-
+	
+	
 }
 
 

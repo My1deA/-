@@ -9,6 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import 文件.DB;
+import 文件.LessonFileOperate;
+import 文件.StudentFileOperate;
+import 文件.TeacherFileOperate;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -17,6 +20,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import 各类.*;
 
@@ -106,8 +110,6 @@ public class RegisterLesson extends JFrame implements Check,CreateObject {
 					create();
 				}
 				
-				
-				
 			}
 
 //			private boolean check() {
@@ -120,13 +122,17 @@ public class RegisterLesson extends JFrame implements Check,CreateObject {
 		//返回
 		JButton button = new JButton("\u8FD4   \u56DE");
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {		
+				AdminFrame a=new AdminFrame();
 				dispose();
-				
 			}
 		});
 		button.setBounds(263, 353, 93, 23);
 		contentPane.add(button);
+		
+		this.setLocationRelativeTo(null);
+		this.setTitle("创建课程");
+		this.setVisible(true);
 	}
 	
 	public boolean check() {
@@ -175,16 +181,68 @@ public class RegisterLesson extends JFrame implements Check,CreateObject {
 	@Override
 	public void create() {
 		// TODO Auto-generated method stub
-		String lesName=textField.getText();
-		String lesID=textField_1.getText();
-		String teaID=textField_2.getText();
-		String major=textField_3.getText();
-		String clazz=textField_4.getText();
+		String lesName=textField.getText();//课程名字
+		String lesID=textField_1.getText();//课程编号
+		String teaID=textField_2.getText();//课程任课老师id
+		String major=textField_3.getText();//专业
+		String clazz=textField_4.getText();//班级
 		
+		//创建课程
+		Lesson l=new Lesson();
+		l.setTeachID(teaID);
+		l.setName(lesName);
+		l.setID(lesID);
 		
+		/**
+		 * 分界线-----------------------------
+		 */
+
+		//老师的信息
+		for(int i=0;i<DB.arrTea.size();i++) {
+			Teacher t=DB.arrTea.get(i);
+			if(t.getID().equals(teaID)) {
+				t.addLesson(lesID);
+				DB.arrTea.set(i, t);
+				break;
+			}
+		}
 		
+
+		//学生的信息修改
+		ArrayList<Integer> rec=new ArrayList<Integer>();//记录多少个学生
+				
+		for(int i=0;i<DB.arrStu.size();i++) {
+			Student s=DB.arrStu.get(i);
+			if(s.getClassID().equals(clazz)&&s.getMajor().equals(major)) {
+				s.addLesson(lesID);
+				DB.arrStu.set(i, s);
+				rec.add(i);
+			}
+		}
 		
+		/**
+		 *  将课程名单修改
+		 */
 		
+		//课程信息修改 和学生上的课修改
+		for(int i=0;i<rec.size();i++) {
+			
+			Student s2=DB.arrStu.get(rec.get(i));		
+			Score s=new Score(s2.getID(),s2.getName());
+			l.addStu(s);
+			
+			s2.addLesson(lesID);
+			DB.arrStu.set(rec.get(i), s2);
+			
+			
+		}
+		DB.arrLes.add(l);
+		
+		TeacherFileOperate.writeTeacher();
+		StudentFileOperate.writeStudent();
+		LessonFileOperate.writeLesson();
+		
+		JOptionPane.showMessageDialog(new JFrame(), "创建课程成功", "", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 }

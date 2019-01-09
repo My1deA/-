@@ -28,11 +28,11 @@ public class Student implements Serializable{
 	}
 	
 	/////////添加课程ID
-	public void addLesson(Lesson t) {
+	public void addLesson(String t) {
 		if(lessonIDGroup==null) {
 			lessonIDGroup=new ArrayList<>();
 		}
-		lessonIDGroup.add(t.getID());
+		lessonIDGroup.add(t);
 	}
 	/////////返回课程ID
 	public ArrayList<String> getLesson(){
