@@ -21,7 +21,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 
-public class RegisterTeacher extends JFrame {
+public class RegisterTeacher extends JFrame implements Check,CreateObject{
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -94,31 +94,13 @@ public class RegisterTeacher extends JFrame {
 				}else if(check()){
 					JOptionPane.showMessageDialog(new JFrame(), "已经有相同ID的教师", "", JOptionPane.WARNING_MESSAGE);
 				}else {
-				
-					Teacher t=new Teacher();
-					t.setName(textField.getText());
-					t.setID(textField_1.getText());
-					t.setPassWord(String.valueOf(passwordField.getPassword()));
 					
-					DB.arrTea.add(t);
-					TeacherFileOperate.writeTeacher();
 					
-					JOptionPane.showMessageDialog(new JFrame(), "注册成功", "", JOptionPane.INFORMATION_MESSAGE);
+					create();
 
 				}
 			}
 
-			private boolean check() {
-				// TODO Auto-generated method stub
-				String id=textField_1.getText();
-				for(int i=0;i<DB.arrTea.size();i++) {
-					Teacher t=DB.arrTea.get(i);
-					if(id.equals(t.getID())) {
-						return true;
-					}
-				}
-				return false;
-			}
 		});
 		button.setBounds(76, 213, 93, 23);
 		contentPane.add(button);
@@ -140,6 +122,32 @@ public class RegisterTeacher extends JFrame {
 		this.setVisible(true);
 	}
 	
+	public boolean check() {
+		// TODO Auto-generated method stub
+		String id=textField_1.getText();
+		for(int i=0;i<DB.arrTea.size();i++) {
+			Teacher t=DB.arrTea.get(i);
+			if(id.equals(t.getID())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public void create() {
+		// TODO Auto-generated method stub
+		Teacher t=new Teacher();
+		t.setName(textField.getText());
+		t.setID(textField_1.getText());
+		t.setPassWord(String.valueOf(passwordField.getPassword()));
+		
+		DB.arrTea.add(t);
+		TeacherFileOperate.writeTeacher();
+		
+		JOptionPane.showMessageDialog(new JFrame(), "注册成功", "", JOptionPane.INFORMATION_MESSAGE);
+
+	}
 }
 
 

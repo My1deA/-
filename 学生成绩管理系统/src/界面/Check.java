@@ -1,0 +1,5 @@
+package ΩÁ√Ê;
+
+public interface Check {
+	public boolean check();
+}

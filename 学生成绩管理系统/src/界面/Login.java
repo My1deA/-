@@ -106,7 +106,7 @@ public class Login extends JFrame {
 						JOptionPane.showMessageDialog(new JFrame(), "ÃÜÂë´íÎó", "", JOptionPane.WARNING_MESSAGE);
 					}
 				}
-				if(radioButton_1.isSelected()) {
+				else if(radioButton_1.isSelected()) {
 					if(String.valueOf(passwordField.getPassword()).equals(String.valueOf(DB.arrTea.get(index).getPassWord()))) {
 						JOptionPane.showMessageDialog(new JFrame(), "µÇÂ¼³É¹¦", "", JOptionPane.INFORMATION_MESSAGE);
 						TeacherFrame t=new TeacherFrame(index);

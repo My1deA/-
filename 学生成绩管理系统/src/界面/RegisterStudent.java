@@ -20,7 +20,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class RegisterStudent extends JFrame {
+public class RegisterStudent extends JFrame implements Check,CreateObject{
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -30,7 +30,7 @@ public class RegisterStudent extends JFrame {
 	private JPasswordField passwordField;
 
 	public RegisterStudent() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 502);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -97,29 +97,10 @@ public class RegisterStudent extends JFrame {
 				else if(check()) {
 					JOptionPane.showMessageDialog(new JFrame(), "已经有相同id的学生", "",JOptionPane.WARNING_MESSAGE );
 				}else {
-					Student s=new Student();
-					s.setID(textField.getText());
-					s.setName(textField_1.getText());
-					s.setClassID(textField_2.getText());
-					s.setMajor(textField_3.getText());
-					s.setPassWord(String.valueOf(passwordField.getPassword()));
-					
-					DB.arrStu.add(s);
-					StudentFileOperate.writeStudent();
-					
-					JOptionPane.showMessageDialog(new JFrame(), "学生用户注册成功", "", JOptionPane.INFORMATION_MESSAGE);
-				}
-				
-			}
+					create();
 
-			private boolean check() {
-				// TODO Auto-generated method stub
-				String id=textField.getText();
-				for(int i=0;i<DB.arrStu.size();i++) {
-					if(DB.arrStu.get(i).equals(id))return true;
 				}
 				
-				return false;
 			}
 		});
 		button.setBounds(81, 363, 93, 23);
@@ -136,5 +117,39 @@ public class RegisterStudent extends JFrame {
 		});
 		button_1.setBounds(276, 363, 93, 23);
 		contentPane.add(button_1);
+		
+		this.setLocationRelativeTo(null);
+		this.setTitle("注册学生");
+		this.setVisible(true);
+		
+	}
+	
+	
+	public boolean check() {
+		// TODO Auto-generated method stub
+		String id=textField.getText();
+		for(int i=0;i<DB.arrStu.size();i++) {
+			if(DB.arrStu.get(i).equals(id))return true;
+		}
+		
+		return false;
+	}
+
+
+	@Override
+	public void create() {
+		// TODO Auto-generated method stub
+		Student s=new Student();
+		s.setID(textField.getText());
+		s.setName(textField_1.getText());
+		s.setClassID(textField_2.getText());
+		s.setMajor(textField_3.getText());
+		s.setPassWord(String.valueOf(passwordField.getPassword()));
+		
+		DB.arrStu.add(s);
+		StudentFileOperate.writeStudent();
+		
+		JOptionPane.showMessageDialog(new JFrame(), "学生用户注册成功", "", JOptionPane.INFORMATION_MESSAGE);
+		
 	}
 }

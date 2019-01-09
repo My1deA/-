@@ -27,7 +27,7 @@ public class AdminFrame extends JFrame {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				RegisterTeacher r=new RegisterTeacher();
+				RegisterTeacher t=new RegisterTeacher();
 			}
 		});
 		button.setBounds(10, 56, 138, 23);
@@ -37,6 +37,8 @@ public class AdminFrame extends JFrame {
 		JButton button_1 = new JButton("\u7BA1 \u7406 \u5B66 \u751F");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				RegisterStudent s=new RegisterStudent();
+				dispose();
 			}
 		});
 		button_1.setBounds(144, 56, 144, 23);
@@ -46,6 +48,8 @@ public class AdminFrame extends JFrame {
 		JButton button_2 = new JButton("\u7BA1 \u7406 \u8BFE \u7A0B");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				RegisterLesson l=new RegisterLesson();
+				dispose();
 			}
 		});
 		button_2.setBounds(286, 56, 138, 23);
