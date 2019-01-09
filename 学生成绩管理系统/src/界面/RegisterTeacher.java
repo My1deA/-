@@ -85,11 +85,11 @@ public class RegisterTeacher extends JFrame {
 		JButton button = new JButton("\u6CE8  \u518C");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(textField.getText().equals("")||textField_1.getText().equals("")||passwordField.getText().equals("")||passwordField_1.getText().equals("")) {
+				if(textField.getText().equals("")||textField_1.getText().equals("")||String.valueOf(passwordField.getPassword()).equals("")||String.valueOf(passwordField_1.getPassword()).equals("")) {
 					JOptionPane.showMessageDialog(new JFrame(), "还有未填写的信息", "警告", JOptionPane.WARNING_MESSAGE);
 					
 				}
-				else if(!passwordField.getText().equals(passwordField_1.getText())) {
+				else if(!String.valueOf(passwordField.getPassword()).equals(String.valueOf(passwordField_1.getPassword()))) {
 					JOptionPane.showMessageDialog(new JFrame(), "两次密码输入不一样", "", JOptionPane.WARNING_MESSAGE);
 				}else if(check()){
 					JOptionPane.showMessageDialog(new JFrame(), "已经有相同ID的教师", "", JOptionPane.WARNING_MESSAGE);
@@ -98,9 +98,11 @@ public class RegisterTeacher extends JFrame {
 					Teacher t=new Teacher();
 					t.setName(textField.getText());
 					t.setID(textField_1.getText());
-					t.setPassWord(passwordField.getText());
+					t.setPassWord(String.valueOf(passwordField.getPassword()));
+					
 					DB.arrTea.add(t);
 					TeacherFileOperate.writeTeacher();
+					
 					JOptionPane.showMessageDialog(new JFrame(), "注册成功", "", JOptionPane.INFORMATION_MESSAGE);
 
 				}

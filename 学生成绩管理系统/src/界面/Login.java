@@ -98,7 +98,7 @@ public class Login extends JFrame {
 			private void match() {
 				// TODO Auto-generated method stub
 				if(radioButton_2.isSelected()) {
-					if(textField.getText().equals("Admin")&&passwordField.getText().equals("123")) {
+					if(textField.getText().equals("Admin")&&String.valueOf(passwordField.getPassword()).equals("123")) {
 						JOptionPane.showMessageDialog(new JFrame(), "登录成功", "", JOptionPane.INFORMATION_MESSAGE);
 						AdminFrame a=new AdminFrame();
 						dispose();
@@ -107,7 +107,7 @@ public class Login extends JFrame {
 					}
 				}
 				if(radioButton_1.isSelected()) {
-					if(passwordField.getText().equals(DB.arrTea.get(index).getPassWord())) {
+					if(String.valueOf(passwordField.getPassword()).equals(String.valueOf(DB.arrTea.get(index).getPassWord()))) {
 						JOptionPane.showMessageDialog(new JFrame(), "登录成功", "", JOptionPane.INFORMATION_MESSAGE);
 						TeacherFrame t=new TeacherFrame(index);
 						dispose();
@@ -116,7 +116,7 @@ public class Login extends JFrame {
 					}
 				}
 				else {
-					if(passwordField.getText().equals(DB.arrTea.get(index).getPassWord())) {
+					if(String.valueOf(passwordField.getPassword()).equals(String.valueOf(DB.arrTea.get(index).getPassWord()))) {
 						JOptionPane.showMessageDialog(new JFrame(), "登录成功", "", JOptionPane.INFORMATION_MESSAGE);
 						StudentFrame s=new StudentFrame(index);
 						dispose();
@@ -155,7 +155,7 @@ public class Login extends JFrame {
 
 			private boolean check() {
 				// TODO Auto-generated method stub
-				if(textField.getText().equals("")||passwordField.getText().equals("")){
+				if(textField.getText().equals("")||String.valueOf(passwordField.getPassword()).equals("")){
 			       	return true;
 				}
 				return false;

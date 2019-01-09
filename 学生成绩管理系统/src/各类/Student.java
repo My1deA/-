@@ -11,8 +11,8 @@ public class Student implements Serializable{
 	private ArrayList<String> lessonIDGroup;//学生课程 放课程Id
 	
 	private String name;//名字
-	private int classID;//班级
-	private String majorName;//专业名称
+	private String classID;//班级
+	private String major;//专业名称
 	
 	public void setID(String ID) {
 		this.ID=ID;
@@ -46,9 +46,19 @@ public class Student implements Serializable{
 	public String getName() {
 		return name;
 	}
-	public void setClassID(int classID) {
+	public void setClassID(String classID) {
 		this.classID=classID;
 	}
+	public String getClassID() {
+		return classID;
+	}
+	public void setMajor(String major) {
+		this.major=major;
+	}
+	public String getMajor() {
+		return major;
+	}
+	
 	
 	public String toString() {
 		return "Stduent#"+ID;
