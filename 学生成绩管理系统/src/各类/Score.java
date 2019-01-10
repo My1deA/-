@@ -15,6 +15,7 @@ public class Score implements Serializable {
 	public Score() {
 		
 	}
+
 	public Score(String ID,String NAME) {
 		this.ID=ID;
 		this.name=NAME;
@@ -28,7 +29,7 @@ public class Score implements Serializable {
 		this.EOT=EOT;
 		setSUM();
 	}
-	
+
 	public void setID(String ID) {
 		this.ID=ID;
 	}
@@ -72,7 +73,7 @@ public class Score implements Serializable {
 		return SUM;
 	}
 	
-	
+
 }
 
 

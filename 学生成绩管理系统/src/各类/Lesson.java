@@ -8,7 +8,7 @@ public class Lesson implements Serializable{
 	
 	private String ID;//课程id
 	private String teachID;//老师id
-	private ArrayList<Score> stuScore;//Score:学生ID 学生姓名 学生成绩 
+	private ArrayList<Score> stuScore;//Score:学生下标  学生成绩 
 	
 	private String name;//课程名称
 	

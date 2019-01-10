@@ -106,6 +106,8 @@ public class Login extends JFrame {
 						JOptionPane.showMessageDialog(new JFrame(), "密码错误", "", JOptionPane.WARNING_MESSAGE);
 					}
 				}
+				
+				///老师登录
 				else if(radioButton_1.isSelected()) {
 					if(String.valueOf(passwordField.getPassword()).equals(String.valueOf(DB.arrTea.get(index).getPassWord()))) {
 						JOptionPane.showMessageDialog(new JFrame(), "登录成功", "", JOptionPane.INFORMATION_MESSAGE);
@@ -115,6 +117,8 @@ public class Login extends JFrame {
 						JOptionPane.showMessageDialog(new JFrame(), "密码错误", "", JOptionPane.WARNING_MESSAGE);
 					}
 				}
+				
+				///学生登录
 				else {
 					if(String.valueOf(passwordField.getPassword()).equals(String.valueOf(DB.arrTea.get(index).getPassWord()))) {
 						JOptionPane.showMessageDialog(new JFrame(), "登录成功", "", JOptionPane.INFORMATION_MESSAGE);
@@ -130,6 +134,7 @@ public class Login extends JFrame {
 				// TODO Auto-generated method stub
 				if(radioButton_2.isSelected()) {//教务
 					if(!textField.getText().equals("Admin"))return true;
+					
 				}else if(radioButton_1.isSelected()) {//老师
 					for(int i=0;i<DB.arrTea.size();i++) {
 						Teacher t=DB.arrTea.get(i);
