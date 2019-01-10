@@ -157,7 +157,7 @@ public class TeacherFrame extends JFrame {
 				String str=(String) comboBox.getSelectedItem();//µÃµ½java123
 				for(int i=0;i<DB.arrLes.size();i++) {
 					if(str.equals(DB.arrLes.get(i).getID())) {
-						Test t=new Test(i);
+						EntryResult entryRerult=new EntryResult(i);
 						break;
 					}
 				}
