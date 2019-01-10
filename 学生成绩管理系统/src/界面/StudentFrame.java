@@ -75,25 +75,29 @@ public class StudentFrame extends JFrame {
 		label_3.setBounds(67, 213, 60, 15);
 		panel.add(label_3);
 		
-		textField = new JTextField();
+		textField = new JTextField();//姓名
 		textField.setBounds(147, 41, 171, 21);
 		panel.add(textField);
 		textField.setColumns(10);
+		textField.setText(student.getName());
 		
-		textField_1 = new JTextField();
+		textField_1 = new JTextField();//账号
 		textField_1.setColumns(10);
 		textField_1.setBounds(147, 96, 171, 21);
 		panel.add(textField_1);
+		textField_1.setText(student.getID());
 		
-		textField_2 = new JTextField();
+		textField_2 = new JTextField();//专业
 		textField_2.setColumns(10);
 		textField_2.setBounds(147, 152, 171, 21);
 		panel.add(textField_2);
+		textField_2.setText(student.getMajor());
 		
-		textField_3 = new JTextField();
+		textField_3 = new JTextField();//班级
 		textField_3.setColumns(10);
 		textField_3.setBounds(147, 210, 171, 21);
 		panel.add(textField_3);
+		textField_3.setText(student.getClassID());
 		
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("修改个人信息", null, panel_1, null);
@@ -169,6 +173,16 @@ public class StudentFrame extends JFrame {
 		JScrollPane jsp=new JScrollPane(table);
 		panel_3.add(jsp,BorderLayout.CENTER);
 		table.setSelectionBackground(Color.CYAN);
+		
+		JButton btnNewButton_1 = new JButton("切换用户");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				Login l=new Login();
+			}
+		});
+		btnNewButton_1.setBounds(331, 10, 93, 23);
+		contentPane.add(btnNewButton_1);
 		TableColumn tableColmun=table.getColumnModel().getColumn(0);
 		tableColmun.setMinWidth(65);
 		

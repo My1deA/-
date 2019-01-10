@@ -165,6 +165,16 @@ public class TeacherFrame extends JFrame {
 		});
 		btnNewButton.setBounds(283, 139, 93, 23);
 		panel_2.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("«–ªª”√ªß");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				Login l=new Login();
+			}
+		});
+		btnNewButton_1.setBounds(331, 0, 93, 23);
+		contentPane.add(btnNewButton_1);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
