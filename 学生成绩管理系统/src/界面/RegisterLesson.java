@@ -45,27 +45,27 @@ public class RegisterLesson extends JFrame implements Check,CreateObject {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel label = new JLabel("\u8BFE\u7A0B\u540D\u79F0:");
+		JLabel label = new JLabel("课程名称:");
 		label.setFont(new Font("宋体", Font.PLAIN, 13));
 		label.setBounds(68, 57, 68, 15);
 		contentPane.add(label);
 		
-		JLabel label_1 = new JLabel("\u8BFE\u7A0B\u7F16\u53F7:");
+		JLabel label_1 = new JLabel("课程编号:");
 		label_1.setFont(new Font("宋体", Font.PLAIN, 13));
 		label_1.setBounds(68, 114, 68, 15);
 		contentPane.add(label_1);
 		
-		JLabel label_2 = new JLabel("\u4EFB\u8BFE\u8001\u5E08\u8D26\u53F7:");
+		JLabel label_2 = new JLabel("任课老师账号:");
 		label_2.setFont(new Font("宋体", Font.PLAIN, 13));
 		label_2.setBounds(42, 173, 85, 15);
 		contentPane.add(label_2);
 		
-		JLabel label_3 = new JLabel("\u6559\u5B66\u4E13\u4E1A:");
+		JLabel label_3 = new JLabel("教学专业:");
 		label_3.setFont(new Font("宋体", Font.PLAIN, 13));
 		label_3.setBounds(68, 225, 68, 15);
 		contentPane.add(label_3);
 		
-		JLabel label_4 = new JLabel("\u6559\u5B66\u73ED\u7EA7:");
+		JLabel label_4 = new JLabel("教学班级:");
 		label_4.setFont(new Font("宋体", Font.PLAIN, 13));
 		label_4.setBounds(68, 273, 68, 15);
 		contentPane.add(label_4);
@@ -98,7 +98,7 @@ public class RegisterLesson extends JFrame implements Check,CreateObject {
 		
 		
 		//创建课程
-		JButton btnNewButton = new JButton("\u521B   \u5EFA");
+		JButton btnNewButton = new JButton("创   建");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(textField.getText().equals("")||textField_1.getText().equals("")||textField_2.getText().equals("")||
@@ -120,7 +120,7 @@ public class RegisterLesson extends JFrame implements Check,CreateObject {
 		
 		
 		//返回
-		JButton button = new JButton("\u8FD4   \u56DE");
+		JButton button = new JButton("返   回");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {		
 				AdminFrame a=new AdminFrame();
@@ -231,8 +231,8 @@ public class RegisterLesson extends JFrame implements Check,CreateObject {
 			Score s=new Score(s2.getID(),s2.getName());
 			l.addStu(s);
 			
-			s2.addLesson(lesID);
-			DB.arrStu.set(rec.get(i), s2);
+//			s2.addLesson(lesID);
+//			DB.arrStu.set(rec.get(i), s2);
 			
 			
 		}

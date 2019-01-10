@@ -40,22 +40,22 @@ public class RegisterTeacher extends JFrame implements Check,CreateObject{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel label = new JLabel("\u6559\u5E08\u8D26\u53F7\uFF1A");
+		JLabel label = new JLabel("教师账号:");
 		label.setFont(new Font("宋体", Font.PLAIN, 14));
 		label.setBounds(69, 63, 72, 15);
 		contentPane.add(label);
 		
-		JLabel label_1 = new JLabel("\u6559\u5E08\u5BC6\u7801\uFF1A");
+		JLabel label_1 = new JLabel("教师密码:");
 		label_1.setFont(new Font("宋体", Font.PLAIN, 14));
 		label_1.setBounds(69, 116, 72, 15);
 		contentPane.add(label_1);
 		
-		JLabel label_2 = new JLabel("\u6559\u5E08\u59D3\u540D\uFF1A");
+		JLabel label_2 = new JLabel("教师姓名:");
 		label_2.setFont(new Font("宋体", Font.PLAIN, 14));
 		label_2.setBounds(69, 13, 72, 15);
 		contentPane.add(label_2);
 		
-		JLabel label_4 = new JLabel("\u6559\u5E08\u5BC6\u7801\uFF1A");
+		JLabel label_4 = new JLabel("教师密码:");
 		label_4.setFont(new Font("宋体", Font.PLAIN, 14));
 		label_4.setBounds(69, 160, 72, 15);
 		contentPane.add(label_4);
@@ -82,7 +82,7 @@ public class RegisterTeacher extends JFrame implements Check,CreateObject{
 		
 		
 		//注册
-		JButton button = new JButton("\u6CE8  \u518C");
+		JButton button = new JButton("注  册");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(textField.getText().equals("")||textField_1.getText().equals("")||String.valueOf(passwordField.getPassword()).equals("")||String.valueOf(passwordField_1.getPassword()).equals("")) {
@@ -106,7 +106,7 @@ public class RegisterTeacher extends JFrame implements Check,CreateObject{
 		contentPane.add(button);
 		
 		//返回
-		JButton button_1 = new JButton("\u8FD4  \u56DE");
+		JButton button_1 = new JButton("返  回");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

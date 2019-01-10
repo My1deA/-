@@ -42,12 +42,12 @@ public class Login extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel label = new JLabel("\u8D26 \u53F7\uFF1A");
+		JLabel label = new JLabel("账 号:");
 		label.setFont(new Font("宋体", Font.PLAIN, 12));
 		label.setBounds(95, 38, 50, 33);
 		contentPane.add(label);
 		
-		JLabel label_1 = new JLabel("\u5BC6 \u7801\uFF1A");
+		JLabel label_1 = new JLabel("密 码:");
 		label_1.setFont(new Font("宋体", Font.PLAIN, 12));
 		label_1.setBounds(95, 81, 50, 33);
 		contentPane.add(label_1);
@@ -61,15 +61,15 @@ public class Login extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JRadioButton radioButton = new JRadioButton("\u5B66\u751F");
+		JRadioButton radioButton = new JRadioButton("学生");
 		radioButton.setBounds(79, 143, 66, 23);
 		contentPane.add(radioButton);
 		
-		JRadioButton radioButton_1 = new JRadioButton("\u6559\u5E08");
+		JRadioButton radioButton_1 = new JRadioButton("教师");
 		radioButton_1.setBounds(178, 143, 70, 23);
 		contentPane.add(radioButton_1);
 		
-		JRadioButton radioButton_2 = new JRadioButton("\u6559\u52A1\u7BA1\u7406");
+		JRadioButton radioButton_2 = new JRadioButton("教务管理");
 		radioButton_2.setBounds(271, 143, 89, 23);
 		contentPane.add(radioButton_2);
 		
@@ -78,7 +78,7 @@ public class Login extends JFrame {
 		buttonGroup.add(radioButton_1);
 		buttonGroup.add(radioButton_2);
 		
-		JButton button = new JButton("\u767B    \u5F55");
+		JButton button = new JButton("登    录");
 		
 		//radioButton     		 学生
 		//radioButton_1     	教师
@@ -120,7 +120,7 @@ public class Login extends JFrame {
 				
 				///学生登录
 				else {
-					if(String.valueOf(passwordField.getPassword()).equals(String.valueOf(DB.arrTea.get(index).getPassWord()))) {
+					if(String.valueOf(passwordField.getPassword()).equals(String.valueOf(DB.arrStu.get(index).getPassWord()))) {
 						JOptionPane.showMessageDialog(new JFrame(), "登录成功", "", JOptionPane.INFORMATION_MESSAGE);
 						StudentFrame s=new StudentFrame(index);
 						dispose();
@@ -169,7 +169,7 @@ public class Login extends JFrame {
 		button.setBounds(79, 204, 93, 23);
 		contentPane.add(button);
 		
-		JButton button_1 = new JButton("\u5173   \u95ED");
+		JButton button_1 = new JButton("关    闭");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);

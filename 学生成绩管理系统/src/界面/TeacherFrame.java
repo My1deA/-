@@ -50,15 +50,15 @@ public class TeacherFrame extends JFrame {
 		tabbedPane.addTab("查看个人信息", null, panel, null);
 		panel.setLayout(null);
 		
-		JLabel label_2 = new JLabel("\u8D26  \u53F7\uFF1A");
+		JLabel label_2 = new JLabel("账  号:");
 		label_2.setBounds(75, 84, 54, 15);
 		panel.add(label_2);
 		
-		JLabel label_3 = new JLabel("\u59D3  \u540D\uFF1A");
+		JLabel label_3 = new JLabel("姓  名:");
 		label_3.setBounds(75, 143, 54, 15);
 		panel.add(label_3);
 		
-		JLabel label_4 = new JLabel("\u6240\u6559\u8BFE\u7A0B\uFF1A");
+		JLabel label_4 = new JLabel("所教课程:");
 		label_4.setBounds(69, 278, 73, 15);
 		panel.add(label_4);
 		
@@ -94,7 +94,7 @@ public class TeacherFrame extends JFrame {
 		}
 		
 		
-		JLabel label_5 = new JLabel("\u5BC6   \u7801\uFF1A");
+		JLabel label_5 = new JLabel("密  码:");
 		label_5.setBounds(75, 208, 54, 15);
 		panel.add(label_5);
 		
@@ -102,12 +102,12 @@ public class TeacherFrame extends JFrame {
 		tabbedPane.addTab("修改个人信息", null, panel_1, null);
 		panel_1.setLayout(null);
 		
-		JLabel label = new JLabel("\u59D3  \u540D\uFF1A");
-		label.setBounds(94, 98, 69, 15);
+		JLabel label = new JLabel("姓  名:");
+		label.setBounds(82, 98, 69, 15);
 		panel_1.add(label);
 		
-		JLabel label_1 = new JLabel("\u5BC6  \u7801\uFF1A");
-		label_1.setBounds(94, 187, 69, 15);
+		JLabel label_1 = new JLabel("密  码:");
+		label_1.setBounds(82, 187, 69, 15);
 		panel_1.add(label_1);
 		
 		
@@ -123,7 +123,7 @@ public class TeacherFrame extends JFrame {
 		textField_1.setBounds(156, 184, 156, 21);
 		panel_1.add(textField_1);
 		
-		JButton button = new JButton("\u786E   \u8BA4");
+		JButton button = new JButton("保  存");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(textField.getText().trim().length()==0&&textField_1.getText().trim().length()==0) {
@@ -151,7 +151,7 @@ public class TeacherFrame extends JFrame {
 		for(int i=0;i<t.getLesson().size();i++) {
 			comboBox.addItem(t.getLesson().get(i));
 		}
-		JButton btnNewButton = new JButton("\u5F55  \u5165");
+		JButton btnNewButton = new JButton("录  入");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String str=(String) comboBox.getSelectedItem();//得到java123

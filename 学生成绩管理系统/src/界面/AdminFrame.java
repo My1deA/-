@@ -24,7 +24,7 @@ public class AdminFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		//注册教师
-		JButton button = new JButton("\u6CE8 \u518C \u8001 \u5E08");
+		JButton button = new JButton("注 册 老 师");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -35,7 +35,7 @@ public class AdminFrame extends JFrame {
 		contentPane.add(button);
 		
 		//注册学生
-		JButton button_1 = new JButton("\u6CE8 \u518C \u5B66 \u751F");
+		JButton button_1 = new JButton("注 册 学 生");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RegisterStudent s=new RegisterStudent();
@@ -46,7 +46,7 @@ public class AdminFrame extends JFrame {
 		contentPane.add(button_1);
 		
 		//注册课程
-		JButton button_2 = new JButton("\u521B \u5EFA \u8BFE \u7A0B");
+		JButton button_2 = new JButton("注 册 课 程");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RegisterLesson l=new RegisterLesson();
@@ -56,12 +56,12 @@ public class AdminFrame extends JFrame {
 		button_2.setBounds(286, 150, 138, 35);
 		contentPane.add(button_2);
 		
-		JLabel lblAdmin = new JLabel("\u6B22\u8FCE Admin \u767B\u5F55");
+		JLabel lblAdmin = new JLabel("欢迎 Admin 登录");
 		lblAdmin.setFont(new Font("宋体", Font.PLAIN, 14));
 		lblAdmin.setBounds(10, 10, 114, 15);
 		contentPane.add(lblAdmin);
 		
-		JLabel label = new JLabel("\u5B66\u751F\u6210\u7EE9\u5F55\u5165\u7CFB\u7EDF\u540E\u53F0");
+		JLabel label = new JLabel("学生成绩管理系统后台");
 		label.setFont(new Font("宋体", Font.PLAIN, 28));
 		label.setBounds(75, 55, 301, 66);
 		contentPane.add(label);

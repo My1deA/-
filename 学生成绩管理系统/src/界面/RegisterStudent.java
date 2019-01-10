@@ -37,27 +37,27 @@ public class RegisterStudent extends JFrame implements Check,CreateObject{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel label = new JLabel("\u5B66\u751F\u8D26\u53F7\uFF1A");
+		JLabel label = new JLabel("学生账号:");
 		label.setFont(new Font("宋体", Font.PLAIN, 14));
 		label.setBounds(61, 37, 70, 15);
 		contentPane.add(label);
 		
-		JLabel label_1 = new JLabel("\u5B66\u751F\u5BC6\u7801\uFF1A");
+		JLabel label_1 = new JLabel("学生密码:");
 		label_1.setFont(new Font("宋体", Font.PLAIN, 14));
 		label_1.setBounds(61, 93, 70, 15);
 		contentPane.add(label_1);
 		
-		JLabel label_2 = new JLabel("\u5B66\u751F\u59D3\u540D\uFF1A");
+		JLabel label_2 = new JLabel("学生姓名");
 		label_2.setFont(new Font("宋体", Font.PLAIN, 14));
 		label_2.setBounds(61, 153, 70, 15);
 		contentPane.add(label_2);
 		
-		JLabel label_3 = new JLabel("\u5B66\u751F\u73ED\u7EA7\uFF1A");
+		JLabel label_3 = new JLabel("学生班级:");
 		label_3.setFont(new Font("宋体", Font.PLAIN, 14));
 		label_3.setBounds(61, 279, 70, 40);
 		contentPane.add(label_3);
 		
-		JLabel label_4 = new JLabel("\u5B66\u751F\u4E13\u4E1A\uFF1A");
+		JLabel label_4 = new JLabel("学生专业:");
 		label_4.setFont(new Font("宋体", Font.PLAIN, 14));
 		label_4.setBounds(61, 225, 70, 15);
 		contentPane.add(label_4);
@@ -88,7 +88,7 @@ public class RegisterStudent extends JFrame implements Check,CreateObject{
 		contentPane.add(passwordField);
 		
 		//注册学生
-		JButton button = new JButton("\u6CE8   \u518C");
+		JButton button = new JButton("注  册");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(textField.getText().equals("")||textField_1.getText().equals("")||textField_2.getText().equals("")||textField_3.getText().equals("")||String.valueOf(passwordField.getPassword()).equals("")) {
@@ -108,7 +108,7 @@ public class RegisterStudent extends JFrame implements Check,CreateObject{
 		
 		
 		//返回
-		JButton button_1 = new JButton("\u8FD4   \u56DE");
+		JButton button_1 = new JButton("返   回");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AdminFrame a=new AdminFrame();
