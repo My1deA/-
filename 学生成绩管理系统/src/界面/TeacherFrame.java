@@ -7,8 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import javafx.scene.control.ComboBox;
 import 各类.Teacher;
 import 文件.DB;
+import 文件.TeacherFileOperate;
 
 import javax.swing.JTabbedPane;
 import javax.swing.JComboBox;
@@ -16,6 +18,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class TeacherFrame extends JFrame {
@@ -26,27 +29,12 @@ public class TeacherFrame extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	/**
-	 * Launch the application.
-	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					TeacherFrame2 frame = new TeacherFrame2();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	private Teacher teacher;
+	private JTextField textField_4;
 
-	/**
-	 * Create the frame.
-	 */
 	public TeacherFrame(int index) {
 		this.index=index;
+		teacher=DB.arrTea.get(index);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();
@@ -67,55 +55,89 @@ public class TeacherFrame extends JFrame {
 		panel.add(label_2);
 		
 		JLabel label_3 = new JLabel("\u59D3  \u540D\uFF1A");
-		label_3.setBounds(75, 163, 54, 15);
+		label_3.setBounds(75, 143, 54, 15);
 		panel.add(label_3);
 		
 		JLabel label_4 = new JLabel("\u6240\u6559\u8BFE\u7A0B\uFF1A");
-		label_4.setBounds(75, 245, 73, 15);
+		label_4.setBounds(69, 278, 73, 15);
 		panel.add(label_4);
 		
+		
+		//查看账号
 		textField_2 = new JTextField();
 		textField_2.setBounds(161, 81, 141, 21);
+		textField_2.setText(teacher.getID());
 		panel.add(textField_2);
 		textField_2.setColumns(10);
 		
+		//查看姓名
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(161, 160, 141, 21);
+		textField_3.setBounds(161, 143, 141, 21);
+		textField_3.setText(teacher.getName());
 		panel.add(textField_3);
 		
+		
+		//查看密码
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		textField_4.setBounds(161, 205, 141, 21);
+		textField_4.setText(teacher.getPassWord());
+		panel.add(textField_4);
+		
+		//查看课程
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(161, 245, 141, 21);
+		comboBox_1.setBounds(161, 275, 141, 21);
 		panel.add(comboBox_1);
+		for(int i=0;i<teacher.getLesson().size();i++) {
+			comboBox_1.addItem(teacher.getLesson().get(i));
+		}
+		
+		
+		JLabel label_5 = new JLabel("\u5BC6   \u7801\uFF1A");
+		label_5.setBounds(75, 208, 54, 15);
+		panel.add(label_5);
 		
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("修改个人信息", null, panel_1, null);
 		panel_1.setLayout(null);
 		
 		JLabel label = new JLabel("\u59D3  \u540D\uFF1A");
-		label.setBounds(94, 68, 69, 15);
+		label.setBounds(94, 98, 69, 15);
 		panel_1.add(label);
 		
 		JLabel label_1 = new JLabel("\u5BC6  \u7801\uFF1A");
-		label_1.setBounds(94, 117, 69, 15);
+		label_1.setBounds(94, 187, 69, 15);
 		panel_1.add(label_1);
 		
+		
+		//修改个人信息 姓名
 		textField = new JTextField();
-		textField.setBounds(156, 65, 156, 21);
+		textField.setBounds(156, 95, 156, 21);
 		panel_1.add(textField);
 		textField.setColumns(10);
 		
+		//修改个人密码
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(156, 114, 156, 21);
+		textField_1.setBounds(156, 184, 156, 21);
 		panel_1.add(textField_1);
 		
 		JButton button = new JButton("\u786E   \u8BA4");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(textField.getText().trim().length()==0&&textField_1.getText().trim().length()==0) {
+					JOptionPane.showMessageDialog(new JFrame(), "还有未填写完的信息", "", JOptionPane.WARNING_MESSAGE);
+				}else {
+					teacher.setName(textField.getText());
+					teacher.setPassWord(textField_1.getText());
+					
+					DB.arrTea.set(index, teacher);
+					TeacherFileOperate.writeTeacher();
+				}
 			}
 		});
-		button.setBounds(219, 183, 93, 23);
+		button.setBounds(219, 256, 93, 23);
 		panel_1.add(button);
 		
 		JPanel panel_2 = new JPanel();

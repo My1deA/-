@@ -164,7 +164,7 @@ public class Test {
 			jf.setVisible(true);
 		}
 		public static void main(String[] args) {
-			EntryResult e=new EntryResult();
+			Test t=new Test(0);
 		}
 }
 
