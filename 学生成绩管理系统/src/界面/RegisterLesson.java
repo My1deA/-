@@ -192,7 +192,8 @@ public class RegisterLesson extends JFrame implements Check,CreateObject {
 		l.setTeachID(teaID);
 		l.setName(lesName);
 		l.setID(lesID);
-		
+		l.setMajor(major);
+		l.setClassID(clazz);
 		/**
 		 * ·Ö½çÏß-----------------------------
 		 */

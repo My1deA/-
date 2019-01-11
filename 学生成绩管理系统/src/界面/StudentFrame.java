@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
@@ -19,6 +20,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -33,8 +35,10 @@ public class StudentFrame extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+//	private JTextField textField_4;
+//	private JTextField textField_5;
+	private JPasswordField passWord;
+	private JPasswordField passWord_1;
 	private Student student;
 	private JTable table;
 	
@@ -103,35 +107,47 @@ public class StudentFrame extends JFrame {
 		tabbedPane.addTab("修改个人信息", null, panel_1, null);
 		panel_1.setLayout(null);
 		
-		JLabel label_4 = new JLabel("学生姓名:");
+		JLabel label_4 = new JLabel("以前密码:");
 		label_4.setBounds(55, 83, 70, 15);
 		panel_1.add(label_4);
 		
-		JLabel label_5 = new JLabel("学生密码:");
+		JLabel label_5 = new JLabel("  新密码:");
 		label_5.setBounds(55, 155, 70, 15);
 		panel_1.add(label_5);
 		
 		
 		
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(144, 80, 164, 21);
-		panel_1.add(textField_4);
-		textField_4.setColumns(10);
+		passWord = new JPasswordField();
+		passWord.setBounds(144, 80, 164, 21);
+		panel_1.add(passWord);
+		passWord.setColumns(10);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(144, 152, 164, 21);
-		panel_1.add(textField_5);
+		passWord_1 = new JPasswordField();
+		passWord_1.setColumns(10);
+		passWord_1.setBounds(144, 152, 164, 21);
+		panel_1.add(passWord_1);
 		
 		JButton btnNewButton = new JButton("保  存");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Student t=DB.arrStu.get(index);
-				t.setName(textField_4.getText());
-				t.setPassWord(textField_5.getText());
-				DB.arrStu.set(index, t);
-				StudentFileOperate.writeStudent();
+//				st=DB.arrStu.get(index);
+				if(String.valueOf(passWord.getPassword()).trim().length()==0&&String.valueOf(passWord_1.getPassword()).trim().length()==0) {
+					JOptionPane.showMessageDialog(new JFrame(), "还有未填写完的信息", "", JOptionPane.WARNING_MESSAGE);
+				}else {
+					if(String.valueOf(passWord.getPassword()).equals(student.getPassWord())) {
+						student.setPassWord(String.valueOf(passWord_1.getPassword()));
+						DB.arrStu.set(index, student);
+						StudentFileOperate.writeStudent();
+					}else {
+						JOptionPane.showMessageDialog(new JFrame(), "以前密码输入错误", "", JOptionPane.WARNING_MESSAGE);
+					}
+					
+					
+				}
+				
+
+				
 			}
 		});
 		btnNewButton.setBounds(215, 230, 93, 23);

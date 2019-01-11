@@ -3,6 +3,7 @@ package 界面;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -156,7 +157,7 @@ public class EntryResult extends JFrame{
 		tablecomlum.setMinWidth(100);
 		
 		//表格的行
-		table.setRowHeight(25);
+		table.setRowHeight(35);
 		//表格的选中的元素
 		table.setSelectionForeground(Color.BLUE);
 		table.setSelectionBackground(Color.YELLOW);
@@ -178,30 +179,37 @@ public class EntryResult extends JFrame{
 		//panel4
 		String [][] container2= {{"90-100",null,null},{"80-89",null,null},{"70-79",null,null},{"60-69",null,null},{"0-59",null,null}};
 		String [] head2= {"成绩区段","人数","百分比"};
-		for(int j=0;j<lesson.getStu().size();j++) {
-			String sum=(String)table.getModel().getValueAt(j, 6);
+		
+		String sum=(String)table.getModel().getValueAt(0, 6);
+		System.out.println(sum);
+		if(sum!=null) {
+			for(int j=0;j<lesson.getStu().size();j++) {
+				sum=(String)table.getModel().getValueAt(j, 6);
 			
-		    Double d=Double.parseDouble(sum);
-			if(d<59) {
-				count[4]++;
-			}else if(d<69) {
+				Double d=Double.parseDouble(sum);
+				if(d<59) {
+					count[4]++;
+				}else if(d<69) {
 					count[3]++;
+				}
+				else if(d<79){
+					count[2]++;
+				}else if(d<89) {
+					count[1]++;
+				}else {
+					count[0]++;
+				}
 			}
-			else if(d<79){
-				count[2]++;
-			}else if(d<89) {
-				count[1]++;
-			}else {
-				count[0]++;
+		
+			for(int i=0;i<5;i++) {
+				container2[i][1]=String.valueOf(count[i]);
+				double perent=(double)count[i]/lesson.getStu().size();
+				DecimalFormat format=new DecimalFormat("#.0%");
+				String perent2=format.format(perent);
+				//System.out.println(perent2);
+				container2[i][2]=perent2;
 			}
 		}
-		
-		for(int i=0;i<5;i++) {
-			container2[i][1]=String.valueOf(count[i]);
-			double perent=(double)count[i]/lesson.getStu().size();
-			container2[i][2]=String.valueOf(perent*100+"%");
-		}
-		
 		DefaultTableModel tabelModel2=new DefaultTableModel(container2,head2);
 		table2=new JTable(tabelModel2);
 		jsp2=new JScrollPane(table2);
@@ -210,10 +218,13 @@ public class EntryResult extends JFrame{
 		table2.setRowHeight(35);
 		table2.setSelectionBackground(Color.YELLOW);
 		table2.setSelectionForeground(Color.blue);
-//		
-//		TableColumn tableColumn2=table.getColumnModel().getColumn(0);
-//		tableColumn2.setMinWidth(150);
 		
+//		TableColumn tableColumn2=table.getColumnModel().getColumn(0);
+//		tableColumn2.setMinWidth(120);
+//		tableColumn2=table.getColumnModel().getColumn(1);
+//		tableColumn2.setMinWidth(80);
+//		tableColumn2=table.getColumnModel().getColumn(2);
+//		tableColumn2.setMinWidth(80);
 
 		
 		///panel5

@@ -6,6 +6,8 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.ButtonGroup;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -27,7 +29,7 @@ public class Login extends JFrame {
 	private JPasswordField passwordField;
 	private JTextField textField;
 	private ButtonGroup buttonGroup;
-	
+	private JLabel jlabel;
 	public static int index;
 	
 	public Login() {
@@ -177,6 +179,11 @@ public class Login extends JFrame {
 		});
 		button_1.setBounds(256, 204, 93, 23);
 		contentPane.add(button_1);
+		
+//		Icon icon=new ImageIcon("µÇÂ¼.png");
+//		jlabel=new JLabel(icon);
+//		jlabel.setBounds(0, 0, 450, 300);
+//		contentPane.add(jlabel);
 		
 		
 		this.setLocationRelativeTo(null);

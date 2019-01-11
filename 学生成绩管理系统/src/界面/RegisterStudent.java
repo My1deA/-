@@ -146,8 +146,22 @@ public class RegisterStudent extends JFrame implements Check,CreateObject{
 		s.setMajor(textField_3.getText());
 		s.setPassWord(String.valueOf(passwordField.getPassword()));
 		
+		Lesson lesson=null;
+		for(int i=0;i<DB.arrLes.size();i++) {
+			lesson=DB.arrLes.get(i);
+			if(lesson.getClassID().equals(s.getClassID())&&lesson.getMajor().equals(s.getMajor())){
+				Score score=new Score();
+				score.setID(s.getID());
+				score.setName(s.getName());
+				lesson.addStu(score);
+				DB.arrLes.set(i, lesson);
+				s.addLesson(lesson.getClassID());
+			}
+		}
+		
 		DB.arrStu.add(s);
 		StudentFileOperate.writeStudent();
+		LessonFileOperate.writeLesson();
 		
 		JOptionPane.showMessageDialog(new JFrame(), "学生用户注册成功", "", JOptionPane.INFORMATION_MESSAGE);
 		
