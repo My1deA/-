@@ -76,7 +76,7 @@ public class EntryResult extends JFrame{
 		
 		label3=new JLabel(lesson.getName());
 		label3.setFont(font2);
-		label3.setBounds(275, 50, 150,18);
+		label3.setBounds(275, 50, 250,18);
 		panel1.add(label3);
 		/////////////////
 		label4=new JLabel("½Ì Ê¦ £º");
