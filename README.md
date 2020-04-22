@@ -6,11 +6,11 @@
  
 
 #### 软件架构
- java语言开发 
+> java语言开发 
  
 
 #### 安装教程
- download/clone 本项目到 Eclipse/IntelliJ IDEA 中运行
+> download/clone 本项目到 Eclipse/IntelliJ IDEA 中运行
 
 
 #### 使用说明
